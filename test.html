@@ -3,8 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        p:after{
+            content:"hello";
+        }
+        p:before{
+            content:"hi";
+        }
+        p:first-letter{
+            color: green;
+        }
+        p:first-line{
+            color: red;
+        }
+        p:first-child{
+            font-weight: bold;
+        }
+        h1:first-child{
+            color: coral;
+        }
+    </style>
 </head>
 <body>
 
+注册：&reg;<br>
+版权：&copy;<br>
+商标：&trade;<br>
+
+<div id="div1">
+    <p>你好</p>
+    <h1>标题1<small>小标题</small></h1>
+    <p id="p1">测试</p>
+</div>
 </body>
+
+<script>
+        var p1 = document.getElementById('p1');
+        var div1 = document.getElementById('div1');
+        div1.removeChild(p1);
+
+         var p2 = document.createElement("p");
+         var text = document.createTextNode("这是js创建的");
+        var span = document.createElement("span");
+        var sText = document.createTextNode("测试span");
+         p2.setAttribute("id","p2");
+         span.appendChild(sText);
+
+         p2.appendChild(text);
+         p2.appendChild(span);
+         div1.appendChild(p2);
+
+        console.log(p2.parentNode);
+        console.log(p2.childNodes[1]);
+        console.log(p2.innerHTML);
+        console.log(p2.attributes[0]);
+
+        console.log(p2.nodeName+p2.nodeValue);
+        console.log(p2.firstChild.nodeName+p2.firstChild.nodeValue);
+
+
+</script>
 </html>
