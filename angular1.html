@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div  ng-controller="mycontrol">
+        <h3>笔记：</h3>
+        <textarea rows="5" cols="50" ng-model="note"></textarea>
+        <p>剩余字数：<span ng-bind="remain()"></span></p>
+        <p>
+            <button ng-click="save()">保存</button>
+            <button ng-click="clear()">清除</button>
+        </p>
+    </div>
+
+</body>
+<script src="http://apps.bdimg.com/libs/angular.js/1.3.9/angular.min.js"></script>
+<script>
+    var app = angular.module("myapp",{});
+    app.controller("mycontrol",function($scope){
+        $scope.note = "";
+        $scope.save = function(){alert("note saved")};
+        $scope.clear = function(){$scope.note = ""};
+        $scope.remain = function(){return 100- $scope.note.length};
+    })
+</script>
+</html>
