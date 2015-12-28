@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>操作dom</title>
+</head>
+<body>
+
+<p id="p1">你好</p>
+
+<input type="button" onclick="create()" value="创建">
+<input type="button" onclick="edit()" value="修改">
+<input type="button" onclick="empty()" value="移除">
+
+
+</body>
+<script>
+    function create(){
+        var p2 = document.createElement("p");
+        p2.setAttribute("id","p2");
+        p2.innerHTML = "我好";
+        document.body.appendChild(p2);
+    }
+
+    function edit(){
+        var p1 = document.getElementById("p1");
+        p1.innerHTML = "大家好";
+        p1.style.color = "green";
+    }
+
+    function empty(){
+        var p2 = document.getElementById("p2");
+        document.body.removeChild(p2);
+    }
+
+</script>
+</html>

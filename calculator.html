@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
+    <title>计算器</title>
+</head>
+<body>
+
+    <section style="margin-top: 200px">
+        <div class="row" style="width: 60%;margin: 0 auto">
+            <h1 style="text-align: center;margin-bottom: 50px">简单计算器</h1>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <input type="text" id="num1"  class="form-control" autofocus>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <select id="operate"  class="form-control" onchange="emptyResult()">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <input type="text" id="num2"  class="form-control">
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                <input type="button" onclick="showResult()" value="=" class="form-control">
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <input type="text" id="result" class="form-control">
+            </div>
+        </div>
+    </section>
+
+</body>
+<script>
+    function showResult(){
+        var num1 = document.getElementById("num1").value;
+        var operate = document.getElementById("operate").value;
+        var num2 = document.getElementById("num2").value;
+        var result = document.getElementById("result");
+
+        //首先判断是否为空
+        if(num1 == "" || num2 == ""){
+            alert("请先输入数字！");
+            return false;
+        }
+
+        //判断是不是数字
+        if(isNaN(num1) || isNaN(num2)){
+            alert("请输入有效数字！");
+            return false;
+        }
+
+        //把字符串转换成数字，防止加号
+        num1 = parseFloat(num1);
+        num2 = parseFloat(num2);
+
+//        switch(operate){
+//            case "+":
+//                result.value = num1+num2;
+//                break;
+//            case "-":
+//                result.value = num1-num2;
+//                break;
+//            case "*":
+//                result.value = num1*num2;
+//                break;
+//            case "/":
+//                result.value = num1/num2;
+//                break;
+//
+//        }
+
+        if(operate == "+"){
+            result.value = num1+num2;
+        }else if(operate == "-"){
+            result.value = num1-num2;
+        }else if(operate == "*"){
+            result.value = num1*num2;
+        }else if(operate == "/"){
+            result.value = num1/num2;
+        }
+
+    }
+
+    function emptyResult(){
+        var num1 = document.getElementById("num1").value;
+        var operate = document.getElementById("operate").value;
+        var num2 = document.getElementById("num2").value;
+
+
+        //当数字都不为空时计算
+        if(num1 != "" && num2 != ""){
+            document.getElementById("result").value = "";
+            showResult();
+        }
+
+    }
+</script>
+</html>
