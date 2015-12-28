@@ -5,6 +5,38 @@
     <title>Title</title>
 </head>
 <body>
-
+输入一个日期，告诉你星期几：<input type="date" id="myDate" onchange="showWeekday()">
+<p id="p"></p>
 </body>
+<script>
+    function showWeekday(){
+        var myDate = document.getElementById("myDate").value;
+        var p = document.getElementById("p");
+        var weekday = new Date(myDate).getDay();
+        switch(weekday){
+            case 1:
+                p.innerHTML = "今天周一";
+                break;
+            case 2:
+                p.innerHTML = "今天周二";
+                break;
+            case 3:
+                p.innerHTML = "今天周三";
+                break;
+            case 4:
+                p.innerHTML = "今天周四";
+                break;
+            case 5:
+                p.innerHTML = "今天周五";
+                break;
+            case 6:
+                p.innerHTML = "今天周六";
+                break;
+            case 0:
+                p.innerHTML = "今天周日";
+                break;
+         }
+
+    }
+</script>
 </html>
