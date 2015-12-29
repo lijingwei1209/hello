@@ -2,11 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>js对象</title>
 </head>
 <body>
-输入一个日期，告诉你星期几：<input type="date" id="myDate" onchange="showWeekday()">
+<p>例1：输入一个日期，告诉你星期几：<input type="date" id="myDate" onchange="showWeekday()"></p>
+
+<p>
+    例2：选择你要买的水果：
+    <input type="checkbox" name="fruit" value="苹果">苹果
+    <input type="checkbox" name="fruit" value="香蕉">香蕉
+    <input type="checkbox" name="fruit" value="桔子">桔子
+    <input type="checkbox" name="fruit" value="梨">梨
+    <input type="checkbox" name="fruit" value="桃">桃
+    <input type="checkbox" name="fruit" value="西瓜">西瓜
+    <input type="button" onclick="buy()" value="付款">
+</p>
+
+<p>例3：正则验证手机号：<input type="text" id="mobile" onclick="empty()">
+    <input type="button" onclick="checkMobile()" value="检查手机号">
+</p>
+
 <p id="p"></p>
+
 </body>
 <script>
     function showWeekday(){
@@ -37,6 +54,39 @@
                 break;
          }
 
+    }
+
+
+    function buy(){
+        var fruit = document.getElementsByName("fruit");
+        var buyFruit = [];
+        for(var i=0;i<fruit.length;i++){
+            if(fruit[i].checked){
+                buyFruit.push(fruit[i].value);
+            }
+        }
+
+        console.log(buyFruit);
+        var str = "";
+        for(var i in buyFruit){
+            str += buyFruit[i]+"，"
+        }
+        document.getElementById("p").innerHTML = "你买了"+str;
+    }
+
+
+    function  checkMobile(){
+        var mobile = document.getElementById("mobile").value;
+        var reg = /^1\d{10}$/;
+        if(!reg.test(mobile)){
+            document.getElementById("p").innerHTML = "请输入有效手机号！";
+        }else{
+            document.getElementById("p").innerHTML = "手机号正确";
+        }
+    }
+
+    function empty(){
+        document.getElementById("p").innerHTML = "";
     }
 </script>
 </html>

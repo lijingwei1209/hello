@@ -2,15 +2,106 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
+
     <title>浏览器bom</title>
 </head>
 <body>
-<input type="button" value="警告框" onclick="alert('这是警告框！')">
-<input type="button" value="提示框" onclick="confirm('确认关闭吗')">
+<div style="margin-top: 200px;margin-left: 400px">
+    <p>
+        各种弹出框：
+        <input type="button" value="警告框" onclick="alert('这是警告框！')">
+        <input type="button" value="确认框" onclick="testConfirm()">
+        <input type="button" value="提示框" onclick="testPrompt()">
+    </p>
 
+    <p>
+        <input type="button" value="显示屏幕高宽" class="btn btn-primary" onclick="showWindow()">
+        <input type="button" value="location跳转" class="btn btn-success" onclick="loca()">
+        <input type="button" value="navigator显示浏览器类型" class="btn btn-warning" onclick="navi()">
+    </p>
+
+    <p>
+        <input type="button" value="定时器"  onclick="testTime()">
+        <input type="button" value="循环时间事件"  onclick="testTime2()">
+        <input type="button" value="停止时间事件"  onclick="javascript:clearInterval(a)">
+
+
+    </p>
+
+    <p id="p1"></p>
+
+</div>
 
 </body>
 <script>
+    function  testConfirm(){
+        if(confirm("你确认要关闭吗")){
+            document.getElementById("p1").innerHTML = "你点击了关闭";
+        }else {
+            document.getElementById("p1").innerHTML = "你点击了取消";
+        }
+    }
+
+
+    function testPrompt(){
+        var name = prompt("请输入你的名字","xiaoming");
+        if(name != null){
+           document.getElementById("p1").innerHTML = "hello，" + name;
+        }
+    }
+
+    function showWindow(){
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+        document.getElementById("p1").innerHTML = "宽："+width + " 高："+height;
+    }
+
+    function  loca(){
+        location.href = "http://www.baidu.com";
+    }
+
+    function navi(){
+        var ua = navigator.userAgent.toLowerCase();
+        if(ua.indexOf("compatible") > -1 && ua.indexOf("msie") > -1){
+            return alert("IE 浏览器");
+        }
+        if(ua.indexOf("android") > -1 && ua.indexOf("chrome") > -1){
+            return alert("Andorid 浏览器");
+        }
+        if(ua.indexOf("iphone") > -1 && ua.indexOf("safari") > -1){
+            return alert("Iphone 浏览器");
+        }
+        if(ua.indexOf("chrome") > -1 ){
+            return alert("Chrome 浏览器");
+        }
+        if(ua.indexOf("safari") > -1){
+            return alert("Safari 浏览器");
+        }
+        if(ua.indexOf("opera") > -1){
+            return alert("Opera 浏览器");
+        }
+        if(ua.indexOf("gecko") > -1 && ua.indexOf("firefox")){
+            return alert("Firefox 浏览器");
+        }
+
+    }
+
+
+    function testTime(){
+        setTimeout(function(){
+            alert("2秒之后才弹出来")
+        },2000)
+    }
+
+    var a ;
+    function testTime2(){
+       a = setInterval(function(){
+            document.getElementById("p1").innerText = new Date().toLocaleString();
+        },1000);
+    }
+
+
 
 </script>
 </html>
