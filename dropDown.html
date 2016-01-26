@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="关键字">
+    <meta name="description" content="描述">
+    <!--<meta http-equiv="refresh" content="5">-->
+
+    <title>Title</title>
+    <style>
+        /* 超小屏幕（手机，小于 768px） */
+        @media (max-width: 768px) { 
+            img{width: 50px;height: 50px  }
+        }
+        /* 小屏幕（平板，大于等于 768px） */
+        @media (min-width:768px) {
+            img{width: 100px;height: 100px  }
+        }
+
+        /* 中等屏幕（桌面显示器，大于等于 992px） */
+        @media (min-width: 992px) {
+            img{width: 150px;height: 150px  }
+        }
+
+        /* 大屏幕（大桌面显示器，大于等于 1200px） */
+        @media (min-width: 1200px) {
+            img{width: 200px;height: 200px;filter:alpha(opacity=50);opacity: 0.5}
+            img:hover{opacity: 1}
+        }
+
+        .dropdown{
+            position: relative;
+            display: inline-block;
+        }
+        .btn{background-color:limegreen;color: #fff;padding: 16px;font-size: 16px;border: none;cursor: pointer}
+
+        .dropContent{position: absolute;display: none;margin: 0;padding: 0;background-color: #f9f9f9}
+
+        .dropContent ul{list-style-type: none;background-color: #fff;margin: 0;padding: 0;}
+
+
+        .dropContent a{
+            text-decoration: none;
+            display: inline-block;
+            padding: 14px 16px;
+            min-width: 100px;
+            background-color: #f9f9f9;
+        }
+
+        .dropContent a:hover{
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .btn{background-color: green}
+
+        .dropdown:hover .dropContent{display: block}
+
+
+    </style>
+</head>
+<body>
+   <div class="dropdown">
+       <button class="btn">下拉列表</button>
+       <div class="dropContent">
+           <ul>
+               <li><a>java</a></li>
+               <li><a>android</a></li>
+               <li><a>ios</a></li>
+           </ul>
+       </div>
+   </div>
+</body>
+</html>
