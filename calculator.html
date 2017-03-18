@@ -8,10 +8,13 @@
     <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
     <title>计算器</title>
+    <style>
+        *{margin: 0; padding: 0}
+    </style>
 </head>
 <body>
 
-    <section style="margin-top: 200px">
+    <div style="margin-top: 200px">
         <div class="row" style="width: 60%;margin: 0 auto">
             <h1 style="text-align: center;margin-bottom: 50px">简单计算器</h1>
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
@@ -35,7 +38,7 @@
                 <input type="text" id="result" class="form-control">
             </div>
         </div>
-    </section>
+    </div>
 
 </body>
 <script>
@@ -93,7 +96,6 @@
         var num1 = document.getElementById("num1").value;
         var operate = document.getElementById("operate").value;
         var num2 = document.getElementById("num2").value;
-
 
         //当数字都不为空时计算
         if(num1 != "" && num2 != ""){

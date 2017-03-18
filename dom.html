@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<p id="p1">你好</p>
+<h1 id="p1">你好</h1>
 
 <input type="button" onclick="create()" value="创建">
 <input type="button" onclick="edit()" value="修改">
@@ -16,7 +16,7 @@
 </body>
 <script>
     function create(){
-        var p2 = document.createElement("p");
+        var p2 = document.createElement("h1");
         p2.setAttribute("id","p2");
         p2.innerHTML = "我好";
         document.body.appendChild(p2);

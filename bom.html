@@ -29,7 +29,7 @@
 
     </p>
 
-    <p id="p1"></p>
+    <h1 id="p1"></h1>
 
 </div>
 
@@ -54,6 +54,8 @@
     function showWindow(){
         var width = window.innerWidth;
         var height = window.innerHeight;
+        var w2 = document.documentElement.clientWidth;
+        var h2 = document.documentElement.clientHeight;
         document.getElementById("p1").innerHTML = "宽："+width + " 高："+height;
     }
 
